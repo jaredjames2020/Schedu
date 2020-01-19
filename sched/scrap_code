@@ -1,0 +1,430 @@
+<%= yield %>
+@events.group_by {|cat| cat.category}
+
+
+<%binding.pry%>
+<%@notes.each do |note|%>
+    <%@events.each do |event|%>
+        <%if event.notes_id == note.event_id%>
+    <%if note.event_id != nil%>
+        <%=note.entry%>
+    <%end%>
+<%end%>
+<%end%>
+<%end%> 
+
+    
+    EVENT: <%event.event_name%>
+
+
+<%@notes.each do |note|%>
+    <%@event.find(note.%>
+    <%=note.entry%>
+<%@events.each do |event|%>
+        <%event.find(note.event_id)%>
+    <%=event.event_name%><br>
+<% end %>
+<% end %>
+
+
+
+flex.css-----------
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    font-family: sans-serif;
+    background: #f1f1f1;
+  }
+  nav {
+    background: #bd574e;
+    padding: 5px 20px;
+  }
+  ul {
+    list-style-type: none;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .logo a:hover {
+    text-decoration: none;
+  }
+  .navigation li {
+    font-size: 16px;
+    padding: 15px 5px;
+    white-space: nowrap;
+  }
+  .logo a, .toggle a {
+    font-size: 20px;
+  }
+  .button.secondary {
+    border-bottom: 1px #444 solid;
+  }
+
+
+  /* Buttons */
+  .button {
+    background-color: #bd574e; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    margin: 20px 20px 20px 35px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+  }
+  
+  .button1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  
+  .button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  /* Event buttons */
+  .event_buttons {
+    padding: 8px;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+  }
+
+  .eventbutton {
+        background-color: #364f6b; 
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        padding: 6px;
+  }
+
+  .eventbutton1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  
+  .eventbutton2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  /* Navigation bar*/
+  @media all and (min-width: 900px) {
+    .item {
+      display: flex;
+      width: auto;
+      justify-content: right;
+      order: 1;
+    }
+    .toggle {
+      display: none;
+    }
+    .logo_text {
+        color: honeydew;
+        margin: 0 1000px 0 0;
+        font-size: large;
+    }
+
+    .button {
+      order: 2;
+    }
+    .navigation li {
+      padding: 15px 10px;
+    }
+    .navigation li.button {
+      padding-right: 0;
+    }
+  }
+
+  /* Body container */
+  .column-layout {
+    max-width: 1300px;
+    background-color: #FFF;
+    margin: 25px auto 0 auto;
+    line-height: 1.65;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* Events */
+  .main-column {
+    flex: 2;
+    order: 2;
+    background-color: #dedef0;
+    border: 1px solid #364f6b;
+    margin: 0 10px 0 10px;
+    padding: 10px;
+    flex-basis: 50%;
+  }
+
+  /* .main-column .test {
+    border: 1px solid chocolate;
+  }
+  
+  .main-column .space {
+    border: 1px solid chocolate;
+  } */
+  .events-content {
+      border: 1px solid #ffad87;
+      flex-direction: column;
+      order: 2;
+      flex: 2;
+  }
+
+  /* Dates and buttons */
+  .sidebar-column {
+    flex: 1;
+    order: 1;
+    padding: 10px;
+    background-color: #fa877f;
+    border: 1px solid black;
+    flex-basis: 20%; 
+  }
+  .sidebar-date {
+    padding: 10px;
+    background-color: white;
+    margin: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  .sidebar-buttons {
+    padding: 10px;
+    background-color: #fef6fb;
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+  }
+
+  .cal_image {
+    background-color: #fef6fb;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 10px 0 0 0;
+  }
+  
+  /* Categories */
+  .sidebar-two {
+    flex: 1;
+    order: 3;
+    padding: 10px;
+    background-color: #fa877f;
+    border: 1px solid #364f6b;
+    flex-basis: 25%;
+  }
+
+  /* Bottom */
+  .column-layout2 {
+    max-width: 1300px;
+    background-color: #FFF;
+    margin: 40px auto 0 auto;
+    line-height: 1.65;
+    padding: 20px 50px;
+    display: flex;
+  }
+
+  /* Log In */
+  .login {
+    max-width: 600px;
+    background-color: #FFF;
+    margin: 40px auto 0 auto;
+    line-height: 1.65;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .notes {
+    background-color: #FFF;
+    border: 1px solid #364f6b;
+  }
+
+  .notes_edit {
+      margin: 10px;
+  }
+  
+flex.css----------
+
+
+                    Name: <%=event.event_name%><br>
+                    Start Date: <%= event.event_start_date&.strftime('%m/%d/%Y')%><br>
+                    
+                    <% if event.event_end_date != nil %>
+                    End Date: <%=event.event_end_date&.strftime('%m/%d/%Y')%><br>
+                    <% end %>
+                    Start Time: <%=event.event_start_time&.strftime("%I:%M %p")%><br>
+                    <% if event.event_end_time != nil %>
+                    End Time: <%=event.event_end_time&.strftime("%I:%M %p")%><br>
+                    <% end %>
+                    Category: <%=event.category%><br>
+                    <%counter_category << event.category%>
+                    Reminder 1: <%=Time.at(event.event_start_time.to_i - event.event_reminder1.to_i).utc.strftime("%I:%M %p")%><br>
+                    <% if event.event_reminder2 != nil %>
+                    Reminder 2: <%=Time.at(event.event_start_time.to_i - event.event_reminder2.to_i).utc.strftime("%I:%M %p")%><br>
+                    <% end %>
+                    Note: <%note = Note.find_by(event_id: event.id)%>
+                    <%=note&.entry%>
+                    <%event.notes_id%>
+
+
+<%="#{event_start_time} "+" #{(event.event_start_time - 60 * 60)&.strftime("%I:%M %p").sub!(/^0/, "")}"%>
+
+<%upload_position_1 = Upload.find_by(user_id: ((Upload.all.last.id)-3) )%>
+            <%upload_position_2 = Upload.find_by(id: ((Upload.all.last.id)-2) )%>
+            <%upload_position_3 = Upload.find_by(id: ((Upload.all.last.id)-1) )%>
+            <%upload_position_4 = Upload.find_by(id: Upload.all.last.id )%>
+                    <img src="<%=upload_position_1.entry%>" alt="<%=upload_position_1.entry%>"><hr><br>
+                    <img src="<%=upload_position_2.entry%>" alt="<%=upload_position_2.entry%>"><hr><br>
+                    <img src="<%=upload_position_3.entry%>" alt="<%=upload_position_3.entry%>"><hr><br>
+                    <img src="<%=upload_position_4.entry%>" alt="<%=upload_position_4.entry%>"><hr><br>
+
+                     <!-- Show all events-->
+            <form action="/events" method="get">
+                <input type="hidden" name="_method">
+                <button class="button button2" type="submit">All Events</button>
+            </form>
+
+
+main.css ------------
+.header {
+  background-color: cornsilk;
+  color: gray; }
+  .header .navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #d6e5fa;
+    position: fixed;
+    top: 0;
+    width: 100%; }
+    .header .navigation ul li {
+      float: right;
+      direction: rtl; }
+    .header .navigation ul li a {
+      display: block;
+      color: #e6b2c6;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none; }
+    .header .navigation ul li a:hover {
+      background-color: #fef6fb; }
+
+.wrapper {
+  margin-top: 60px; }
+  .wrapper .today_date {
+    font-size: 16px !important;
+    width: 50%;
+    position: relative;
+    background: #d77fa1;
+    color: #fef6fb;
+    text-align: center;
+    padding: 1em 2em;
+    margin: 2em auto 3em; }
+  .wrapper .today_date:before, .wrapper .today_date:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1.5em solid #a79f99;
+    z-index: -1; }
+  .wrapper .today_date:before {
+    left: -2em;
+    border-right-width: 1.5em;
+    border-left-color: transparent; }
+  .wrapper .today_date:after {
+    right: -2em;
+    border-left-width: 1.5em;
+    border-right-color: transparent; }
+  .wrapper .today_date .today_date-content:before, .wrapper .today_date .today_date-content:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: #4d3828 transparent transparent transparent;
+    bottom: -1em; }
+  .wrapper .today_date .today_date-content:before {
+    left: 0;
+    border-width: 1em 0 0 1em; }
+  .wrapper .today_date .today_date-content:after {
+    right: 0;
+    border-width: 1em 1em 0 0; }
+  .wrapper .events_content {
+    background-color: #d6e5fa;
+    margin-right: 33%;
+    margin-left: auto;
+    /* 1 */
+    max-width: 960px;
+    /* 2 */
+    padding-right: 10px;
+    /* 3 */
+    padding-left: 10px;
+    /* 3 */ }
+    .wrapper .events_content .line_break {
+      background-color: white;
+      margin-left: auto;
+      /* 1 */
+      max-width: 960px;
+      /* 2 */
+      height: 2px;
+      padding-right: 2px;
+      /* 3 */
+      padding-left: 2px;
+      /* 3 */ }
+  .wrapper .yesterday_date {
+    color: black;
+    background-color: #d6e5fa;
+    position: fixed;
+    width: 50%;
+    bottom: 0;
+    right: 50%; }
+  .wrapper .tomorrow_date {
+    color: red;
+    background-color: #d6e5fa;
+    position: fixed;
+    width: 50%;
+    bottom: 0;
+    left: 50%;
+    text-align: right; }
+  .wrapper .category_counter {
+    background-color: lawngreen;
+    float: right;
+    clear: right;
+    width: 32.7%; }
+
+/* Wrapper close */
+
+/*# sourceMappingURL=main.css.map */
+
+main.css ------------
+
+
+
+main.css.map -----------
+{
+"version": 3,
+"mappings": "AAAA,OAAQ;EACN,gBAAgB,EAAE,QAAQ;EAC1B,KAAK,EAAE,IAAI;EAGT,sBAAG;IACD,eAAe,EAAE,IAAI;IACrB,MAAM,EAAE,CAAC;IACT,OAAO,EAAE,CAAC;IACV,QAAQ,EAAE,MAAM;IAChB,gBAAgB,EAAE,OAAO;IACzB,QAAQ,EAAE,KAAK;IACf,GAAG,EAAE,CAAC;IACN,KAAK,EAAE,IAAI;IAEX,yBAAG;MACD,KAAK,EAAE,KAAK;MACZ,SAAS,EAAE,GAAG;IAGhB,2BAAK;MACH,OAAO,EAAE,KAAK;MACd,KAAK,EAAE,OAAO;MACd,UAAU,EAAE,MAAM;MAClB,OAAO,EAAE,SAAS;MAClB,eAAe,EAAE,IAAI;IAGvB,iCAAW;MACT,gBAAgB,EAAE,OAAO;;AAMjC,QAAS;EACP,UAAU,EAAE,IAAI;EAEhB,oBAAY;IACV,SAAS,EAAE,eAAe;IAC1B,KAAK,EAAE,GAAG;IACV,QAAQ,EAAE,QAAQ;IAClB,UAAU,EAAE,OAAO;IACnB,KAAK,EAAE,OAAO;IACd,UAAU,EAAE,MAAM;IAClB,OAAO,EAAE,OAAO;IAChB,MAAM,EAAE,YAAY;EAEtB,uDAAsC;IACpC,OAAO,EAAE,EAAE;IACX,QAAQ,EAAE,QAAQ;IAClB,OAAO,EAAE,KAAK;IACd,MAAM,EAAE,IAAI;IACZ,MAAM,EAAE,mBAAmB;IAC3B,OAAO,EAAE,EAAE;EAEb,2BAAmB;IACjB,IAAI,EAAE,IAAI;IACV,kBAAkB,EAAE,KAAK;IACzB,iBAAiB,EAAE,WAAW;EAEhC,0BAAkB;IAChB,KAAK,EAAE,IAAI;IACX,iBAAiB,EAAE,KAAK;IACxB,kBAAkB,EAAE,WAAW;EAEjC,+FAA8E;IAC5E,OAAO,EAAE,EAAE;IACX,QAAQ,EAAE,QAAQ;IAClB,OAAO,EAAE,KAAK;IACd,YAAY,EAAE,KAAK;IACnB,YAAY,EAAE,2CAA2C;IACzD,MAAM,EAAE,IAAI;EAEd,+CAAuC;IACrC,IAAI,EAAE,CAAC;IACP,YAAY,EAAE,WAAW;EAE3B,8CAAsC;IACpC,KAAK,EAAE,CAAC;IACR,YAAY,EAAE,WAAW;EAG3B,wBAAgB;IACZ,gBAAgB,EAAE,OAAO;IACzB,YAAY,EAAE,GAAG;IACjB,WAAW,EAAG,IAAI;IAAE,OAAO;IAC3B,SAAS,EAAE,KAAK;IAAE,OAAO;IACzB,aAAa,EAAE,IAAI;IAAE,OAAO;IAC5B,YAAY,EAAG,IAAI;IAAE,OAAO;IAE5B,oCAAY;MACV,gBAAgB,EAAE,KAAK;MACvB,WAAW,EAAG,IAAI;MAAE,OAAO;MAC3B,SAAS,EAAE,KAAK;MAAE,OAAO;MACzB,MAAM,EAAE,GAAG;MACX,aAAa,EAAE,GAAG;MAAE,OAAO;MAC3B,YAAY,EAAG,GAAG;MAAE,OAAO;EAKjC,wBAAgB;IACZ,KAAK,EAAE,KAAK;IACZ,gBAAgB,EAAE,OAAO;IACzB,QAAQ,EAAE,KAAK;IACf,KAAK,EAAC,GAAG;IACT,MAAM,EAAC,CAAC;IACR,KAAK,EAAE,GAAG;EAGd,uBAAe;IACX,KAAK,EAAE,GAAG;IACV,gBAAgB,EAAE,OAAO;IACzB,QAAQ,EAAE,KAAK;IACf,KAAK,EAAC,GAAG;IACT,MAAM,EAAC,CAAC;IACR,IAAI,EAAE,GAAG;IACT,UAAU,EAAE,KAAK;EAGrB,0BAAkB;IACd,gBAAgB,EAAE,SAAS;IAC3B,KAAK,EAAC,KAAK;IACX,KAAK,EAAC,KAAK;IACX,KAAK,EAAC,KAAK;;AAGhB,mBAAmB",
+"sources": ["sass/main.scss"],
+"names": [],
+"file": "main.css"
+}
+main.css.map -----------
+

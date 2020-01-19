@@ -1,0 +1,31 @@
+<h1><%=@events.event_name%></h1><br>
+    Date: <%=@events.event_start_date&.strftime('%m/%d/%Y')%><br>
+            <% if @events.event_end_date != nil %>
+                End Date: <%=@events.event_end_date&.strftime('%m/%d/%Y')%><br>
+            <% end %>
+    Time: <%=@events.event_start_time&.strftime("%I:%M %p")%><br>
+    Category: <%=@events.category%><br>
+    Reminder: <%=@events.event_reminder1&.strftime("%I:%M %p")%><br>
+         <% if @events.event_reminder2 != nil %>
+            Reminder 2: <%=@events.event_reminder2&.strftime("%I:%M %p")%><br>
+        <% end %>
+    Note: <%note = Note.find_by(event_id: @events.id)%>
+            <%=note&.entry%>
+
+    <!-- Edit Event:   -->
+        <form action="/events/<%=@events.id%>/edit" method="get">
+            <button type="submit">Edit Event</button>
+        </form>
+   
+    <!-- Delete -->
+        <form action="/events/<%=@events.id%>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit">Delete</button>
+        </form><br>
+    
+    <!-- Show all -->
+         <form action="/events" method="get">
+            <input type="hidden" name="_method">
+            <button type="submit">All Events</button>
+        </form><br>
+        

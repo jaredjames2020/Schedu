@@ -1,0 +1,42 @@
+
+<%@Upload.each do |upload_file|%>
+    <%=upload_file%>
+    <!-- Delete -->
+        <form action="/uploads/<%=upload_file.id%>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit">Delete</button>
+        </form><br>
+    <%end%>
+
+<div class="sidebar-buttons">
+<!-- New event-->
+<form action="/events/new" method="get">
+    <input type="hidden" name="_method">
+    <button class="button button2" type="submit">New Event</button>
+</form>
+
+<!-- Show all events-->
+<form action="/events" method="get">
+    <input type="hidden" name="_method">
+    <button class="button button2" type="submit">All Events</button>
+</form>
+
+<!-- New note-->
+<form action="/notes/new" method="get">
+    <input type="hidden" name="_method">
+    <button class="button button2" type="submit">Take Note</button>
+</form>
+
+<!-- Show all notes -->
+<form action="/notes" method="get">
+    <input type="hidden" name="_method">
+    <button class="button button2" type="submit">View Notes</button>
+</form>
+</div><!--sidebar_buttons-->
+
+<!--Calendar Image-->
+<div class="cal_image">
+<img src="images/jan_2020.png" alt="January 2020" style="width:230px;height:160px">
+</div><!--Calendar Image-->
+</div><!--sidebar_column-->
+

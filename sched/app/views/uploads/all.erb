@@ -1,0 +1,6 @@
+
+<%@uploads.each do |all_uploads|%>
+    <%if all_uploads.user_id == current_user.id%>
+        <%=all_uploads.entry%><hr><br>
+    <%end%>
+<%end%>

@@ -1,0 +1,16 @@
+<h1>Notes<h1>
+<%@notes.each do |note|%>
+    <%if current_user.id == note.user_id%>
+     <h1><a href="/notes/<%="#{note.id}/edit"%>" style="color: black; text-decoration: none"> <%=note.event_name%></a></h1>
+     <%=note.entry%><br> 
+     <!-- Delete -->
+     <form action="/notes/<%="#{note.id}"%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        
+        <div class="event_buttons2">
+        <button class="eventbutton eventbutton2" type="submit">Delete</button>
+        </div>
+    </form><br>
+         <hr><br><br>
+    <%end%>
+<%end%>

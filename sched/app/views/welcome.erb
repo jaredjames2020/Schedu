@@ -1,0 +1,35 @@
+
+  <div class="welcome">  
+  <class="main-logo" header>
+    <img src="images/Black_logo_160x100.png" class="main-logo">
+  </header>
+  </div>
+      
+      
+  <div class="welcome-message">
+    <h1>Your Daily Planner</h1><br><br></div>
+      <div><h2 class="welcome-message welcome-message1">Organize:</h2></div>
+      <ul>
+          <li class="welcome-message welcome-message2"><b>Events</li>
+          <li class="welcome-message welcome-message2"><b>Notes</li>
+          <li class="welcome-message welcome-message2"><b>Uploads</li>
+          <li class="welcome-message welcome-message2"><b>And more</li>
+        </ul>  
+    </div>
+
+  <div class="welcome-user">
+    <%if logged_in?%>
+      <div class="login">
+        <h1><a href="/events" style="color: black; text-decoration: none" >Hello <%=current_user.username.capitalize%></a></h1>
+      </div>
+    <%else%>
+      <div class="login">
+        <form action="/login" method="post"> 
+            Username: <input class="username-login" type="text" name="username"><br><br>
+            Password: <input class="username-login" type="password" name="password"><br><br>
+            <div class="button-login"><input type="submit" value="Log In"></div>
+        </form><br>
+        <p><%=@error%></p>
+      </div>
+    <%end%>
+  </div>

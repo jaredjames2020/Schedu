@@ -1,0 +1,12 @@
+<div class="new-event">
+<h1><%=@events.event_name%></h1><br>
+<div class="new-event-box">
+<form action='/notes/<%=@notes.id%>' method='POST'>
+    <label class="notes_edit">Notes: </label><br>
+    <textarea class="notes_edit" name="notes[entry]" rows="20" cols="150"><%=@notes.entry%></textarea> <br>
+    <input type="hidden" name="_method" value="patch"><br>
+    
+    <div class="event_buttons">
+    <button class="eventbutton eventbutton2" class="notes_edit" type="submit" value="Save Note">Save Note</button>
+</form></div>
+</div>

@@ -1,0 +1,58 @@
+<div class="new-event">
+<h1><%=@events.event_name%></h1><br>
+
+<div class="new-event-box">
+<form action='/events/<%=@events.id%>' method='POST'>
+    <label>Category</label>
+        <select name="event[category]" >
+            <option name="event[category]" value="Home">Home</option>
+            <option name="event[category]" value="Work">Work</option>
+            <option name="event[category]" value="Personal">Personal</option>
+            <option name="event[category]" value="Other">Other</option>
+        </select><br>
+    <label>Name</label>
+        <input type="text" name="event[event_name]" value="<%=@events.event_name%>"><br>
+    <label>Start Date</label>
+        <input type="date" name="event[event_start_date]" value="<%=@events.event_start_date%>"><br>
+    <label>End Date</label>
+        <input type="date" name="event[event_end_date]" value="<%=@events.event_end_date%>"><br>
+    <label>Start Time</label>
+        <input type="time" name="event[event_start_time]" value="<%=@events.event_start_time&.strftime("%H:%M")%>"><br>
+    <label>End Time</label>
+        <input type="time" name="event[event_end_time]" value="<%=@events.event_end_time&.strftime("%H:%M")%>"><br>
+    <label>Location</label>
+        <input type="text" name="event[event_location]" value="<%=@events.event_location%>"><br>
+    <label>Reminder 1</label>
+        <select name="event[event_reminder1]">
+            <option value=0 selected="At time">at time</option>
+            <option value=300 selected="5 mins before">5 mins before</option>
+            <option value=900 selected="15 mins before">15 mins before</option>
+            <option value=1800 selected="30 mins before">30 mins before</option>
+            <option value=3600 selected="1 hour before">1 hour before</option>
+            <option value=7200 selected="2 hours before">2 hours before</option>
+            <option value=21600 selected="6 hours before">6 hours before</option>
+            <option value=43200 selected="12 hours before">12 hours before</option>
+            <option value=86400 selected="1 day before">1 day before</option>
+            <option selected="none">none</option>
+        </select><br>
+    <label>Reminder 2</label>
+    <select name="event[event_reminder2]">
+            <option>none</option>
+            <option value=0>at time</option>
+            <option value=300>5 mins before</option>
+            <option value=900>15 mins before</option>
+            <option value=1800>30 mins before</option>
+            <option value=3600>1 hour before</option>
+            <option value=7200>2 hours before</option>
+            <option value=21600>6 hours before</option>
+            <option value=43200>12 hours before</option>
+            <option value=86400>1 day before</option>
+        </select><br>
+    <label>Notes</label>
+        <textarea name="notes[entry]" rows="10" cols="30"><%=@notes.entry%></textarea> <br>
+   
+    <input type="hidden" name="_method" value="patch">
+    <div class="event_buttons">
+    <button class="eventbutton eventbutton2" type="submit" value="Edit Event">Edit Event</button></div>
+</form></div>
+</div>

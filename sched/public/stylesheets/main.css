@@ -1,0 +1,109 @@
+.header {
+  background-color: cornsilk;
+  color: gray; }
+  .header .navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #d6e5fa;
+    position: fixed;
+    top: 0;
+    width: 100%; }
+    .header .navigation ul li {
+      float: right;
+      direction: rtl; }
+    .header .navigation ul li a {
+      display: block;
+      color: #e6b2c6;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none; }
+    .header .navigation ul li a:hover {
+      background-color: #fef6fb; }
+
+.wrapper {
+  margin-top: 60px; }
+  .wrapper .today_date {
+    font-size: 16px !important;
+    width: 50%;
+    position: relative;
+    background: #d77fa1;
+    color: #fef6fb;
+    text-align: center;
+    padding: 1em 2em;
+    margin: 2em auto 3em; }
+  .wrapper .today_date:before, .wrapper .today_date:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1.5em solid #a79f99;
+    z-index: -1; }
+  .wrapper .today_date:before {
+    left: -2em;
+    border-right-width: 1.5em;
+    border-left-color: transparent; }
+  .wrapper .today_date:after {
+    right: -2em;
+    border-left-width: 1.5em;
+    border-right-color: transparent; }
+  .wrapper .today_date .today_date-content:before, .wrapper .today_date .today_date-content:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: #4d3828 transparent transparent transparent;
+    bottom: -1em; }
+  .wrapper .today_date .today_date-content:before {
+    left: 0;
+    border-width: 1em 0 0 1em; }
+  .wrapper .today_date .today_date-content:after {
+    right: 0;
+    border-width: 1em 1em 0 0; }
+  .wrapper .events_content {
+    background-color: #d6e5fa;
+    margin-right: 33%;
+    margin-left: auto;
+    /* 1 */
+    max-width: 960px;
+    /* 2 */
+    padding-right: 10px;
+    /* 3 */
+    padding-left: 10px;
+    /* 3 */ }
+    .wrapper .events_content .line_break {
+      background-color: white;
+      margin-left: auto;
+      /* 1 */
+      max-width: 960px;
+      /* 2 */
+      height: 2px;
+      padding-right: 2px;
+      /* 3 */
+      padding-left: 2px;
+      /* 3 */ }
+  .wrapper .yesterday_date {
+    color: black;
+    background-color: #d6e5fa;
+    position: fixed;
+    width: 50%;
+    bottom: 0;
+    right: 50%; }
+  .wrapper .tomorrow_date {
+    color: red;
+    background-color: #d6e5fa;
+    position: fixed;
+    width: 50%;
+    bottom: 0;
+    left: 50%;
+    text-align: right; }
+  .wrapper .category_counter {
+    background-color: lawngreen;
+    float: right;
+    clear: right;
+    width: 32.7%; }
+
+/* Wrapper close */
+
+/*# sourceMappingURL=main.css.map */
