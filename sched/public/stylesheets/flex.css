@@ -28,7 +28,7 @@ body {
 
 .logo a, .navigation a {
   text-decoration: none;
-  letter-spacing: .45rem;
+  letter-spacing: .15rem;
 }
 
 .navigation  {
@@ -75,16 +75,16 @@ body {
     flex-direction: column;
   }
 
-  .navigation a { 
-    text-align: center; 
+  .navigation a {
+    text-align: center;
     padding: 10px;
-    border-top: 1px solid rgba(255,255,255,0.3); 
-    border-bottom: 1px solid rgba(0,0,0,0.1); 
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
   }
 
   .navigation li:last-of-type a {
     border-bottom: none;
-  } 
+  }
 }
 
 /* ****Welcome*** */
@@ -216,7 +216,7 @@ body {
   background-color: #ffad87;
   border: 1px solid #dedef0;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  flex-basis: 20%; 
+  flex-basis: 20%;
 }
 .sidebar-date {
   padding: 5px 40px 0 40px;
@@ -270,7 +270,7 @@ body {
 
 /* Buttons */
 .button {
-  background-color: #fa877f; 
+  background-color: #fa877f;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -306,7 +306,7 @@ body {
 }
 
 .eventbutton {
-  background-color: #364f6b; 
+  background-color: #364f6b;
   border: none;
   color: white;
   text-align: center;
