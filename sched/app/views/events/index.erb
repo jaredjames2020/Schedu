@@ -13,14 +13,14 @@
                 <h1><%=ticktock.strftime('%B %d')%></h1>
             </div> <!-- today date-->
         </div><!--sidebar-date-->
-    
+
         <div class="sidebar-buttons">
             <!-- New event-->
             <form action="/events/new" method="get">
                 <input type="hidden" name="_method">
                 <button class="button button2" type="submit">New Event</button>
             </form>
-            
+
             <!-- New note-->
             <form action="/notes/new" method="get">
                 <input type="hidden" name="_method">
@@ -46,19 +46,19 @@
             <img src="images/jan_2020.png" alt="January 2020" style="width:230px;height:160px">
         </div><!--Calendar Image-->
       </div><!--sidebar_column-->
-        
-        
+
+
         <!-- events -->
         <div class="main-column">
             <div class="events_content">
             <%counter_category = []%>
             <%no_events_today = " "%>
-        
+
             <%@events.each do |event|%>
                 <%if current_user.id == event.user_id%>
                 <%if event.event_start_date&.strftime('%A, %d %B') == today%>
                     <h1><%=event.event_name%></h1>
-                    
+
                     <%event_start_date = event.event_start_date&.strftime('%a, %B, %d')%>
                     <%event_end_date = event.event_end_date&.strftime('%a, %B, %d')%>
                     <%event_start_time = event.event_start_time&.strftime("%I:%M %p")%>
@@ -72,50 +72,50 @@
                                 <%="#{event_start_time} to #{event_end_time}"%>
                             <% else %>
                                 <%add_hour_to_eventtime&.strftime("%I:%M %p")%>
-                                <%="#{event_start_time} to #{add_hour_to_eventtime&.strftime("%I:%M %p")}"%> 
+                                <%="#{event_start_time} to #{add_hour_to_eventtime&.strftime("%I:%M %p")}"%>
                             <% end %><br>
                         <% end %></h3>
                     <%if event.event_location != nil%>
                         <em>Location: <%=event.event_location%></em><br><br>
                     <%end%>
-                
+
                     <%event.category%>
                     <%counter_category << event.category%>
                     <%Time.at(event.event_start_time.to_i - event.event_reminder1.to_i).utc.strftime("%I:%M %p")%>
                     <% if event.event_reminder2 != nil %>
                     <%Time.at(event.event_start_time.to_i - event.event_reminder2.to_i).utc.strftime("%I:%M %p")%>
                     <% end %>
-                    
+
                     <div class="notes">
                         <%note = Note.find_by(event_id: event.id)%>
                         <% if note&.entry != nil%>
                         <h3><%="#{"Notes: "}</h3> #{note&.entry}"%>
                         <%event.notes_id%></div>
                         <% end %>
-                        
+
                         <div class="event_buttons">
-                            <!-- Edit Event:   -->    
+                            <!-- Edit Event:   -->
                             <form action="/events/<%=event.id%>/edit" method="get">
                                 <button class="eventbutton eventbutton2" type="submit">Edit Event</button>
                             </form>
-                            
+
                             <!-- Add Notes:   add = to link address-->
                             <form action="/notes/<%=event.notes_id%>/edit" method="get">
                                 <button class="eventbutton eventbutton2" type="submit">Edit Notes</button>
                             </form>
-                            
+
                             <!-- Add uploads:  add = to link address-->
                             <form action="/uploads" method="get">
                                 <button class="eventbutton eventbutton2" type="submit">Upload</button>
                             </form>
-                            
+
                             <!-- Delete -->
                             <form action="/events/<%=event.id%>" method="post">
                                 <input type="hidden" name="_method" value="delete">
                                 <button class="eventbutton eventbutton2" type="submit">Delete</button>
                             </form>
                         </div><!--event buttons-->
-                        
+
                         <hr><br>
                         <%else%>
                             <h3><%no_events_today = "NO EVENTS TODAY"%></h3>
@@ -126,9 +126,9 @@
                 </div><!-- events_content -->
         </div><!-- main column -->
 
-        
-        
-        
+
+
+
         <div class="sidebar-two">
             <div class="welcome-text"><h2>Hello <%=current_user.username.capitalize%></h2></div>
             <div class="category-counter"><h3>EVENT CATEGORIES</h3><br>
@@ -137,7 +137,7 @@
                 Personal: <%=counter_category.count("Personal")%><hr><br>
                 Other: <%=counter_category.count("Other")%><hr><br>
             </h3></div><!-- category_counter-->
-            <div class="upload-thumbs"><h3>LATEST UPLOADS</h3><br>
+            <div class="upload-thumbs"><h3>RECENT UPLOADS</h3><br>
             <%upload_thumbs = []%>
             <%Upload.all.collect do |display_upload|%>
                 <%if display_upload.user_id == current_user.id%>
@@ -146,14 +146,14 @@
             <%end%>
             <img src="<%=upload_thumbs[0]&.entry%>" alt="<%=upload_thumbs[0]&.entry%>"><hr><br>
             <img src="<%=upload_thumbs[1]&.entry%>" alt="<%=upload_thumbs[1]&.entry%>"><hr><br><br><br><br></div>
-            
+
         </div><!--sidebar-two-->
 </div><!--column-layout-->
 
 
 <!-- <div class="column-layout2">
   <%counter_yesterday = []%>
-  <%counter_tomorrow = []%>  
+  <%counter_tomorrow = []%>
    <%yesterday = (Date.yesterday).strftime('%A, %d %B')%>
     <%tomorrow = ((Date.today) + 1).strftime('%A, %d %B')%>
      <%@events.each do |history|%>
@@ -164,7 +164,7 @@
             <%history.event_start_date&.strftime('%A, %d %B') == tomorrow%>
             <%counter_tomorrow << tomorrow%>
     <%end%><!--events loop-->
-<!-- <div class="yesterday_date">   
+<!-- <div class="yesterday_date">
     <%="Yesterday: "%><%=counter_yesterday.count%></div>
 <div class="tomorrow_date"></div>
     <%="Tomorrow: "%><%=counter_tomorrow.count%></div>
