@@ -1,9 +1,9 @@
 ###Schedu###
 
-About
+###About###
 Schedu is a daily planner application that can help you keep your schedule in order. Schedu keeps track of all your events, stores important notes, and manages uploads.
 
-Installation
+###Installation###
 From your command prompt enter the following:
 1) Clone the repo:
     git clone git@github.com:jaredjames2020/Schedu.git
