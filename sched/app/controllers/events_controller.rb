@@ -38,7 +38,7 @@ class EventsController < ApplicationController
             else
                 redirect '/'
             end
-        end 
+        end
 
         #show - make a get request to '/events/:id'
         get '/events/:id' do
