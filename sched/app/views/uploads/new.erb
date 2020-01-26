@@ -12,7 +12,7 @@
   </div>
   </div>
 
-<%@uploads.each do |upload_file|%>
+<br><br><%@uploads.each do |upload_file|%>
   <%if current_user.id == upload_file.user_id%>
   <%=upload_file.entry%>
   <!-- Delete -->
