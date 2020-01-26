@@ -144,9 +144,8 @@
                     <%upload_thumbs << display_upload%>
                 <%end%>
             <%end%>
-            <img src="<%=upload_thumbs[0]&.entry%>" alt="<%=upload_thumbs[0]&.entry%>"><hr><br>
-            <img src="<%=upload_thumbs[1]&.entry%>" alt="<%=upload_thumbs[1]&.entry%>"><hr><br><br><br><br></div>
-
+            <img src="<%=upload_thumbs.reverse[0]&.entry%>" alt="<%=upload_thumbs.reverse[0]&.entry%>"><hr><br>
+            <img src="<%=upload_thumbs.reverse[1]&.entry%>" alt="<%=upload_thumbs.reverse[1]&.entry%>"><hr><br><br><br><br></div>
         </div><!--sidebar-two-->
 </div><!--column-layout-->
 
