@@ -1,6 +1,5 @@
 <h1><%=current_user.username.capitalize%>'s Notes</h1><br><hr>
 <%@notes.each do |note|%>
-    <%if current_user.id == note.user_id%>
      <h1><a href="/notes/<%="#{note.id}/edit"%>" style="color: black; text-decoration: none"> <%=note.event_name%></a></h1><br>
      <%=note.entry%><br>
      <!-- Delete -->
@@ -12,5 +11,4 @@
         </div>
     </form><br>
          <hr>
-    <%end%>
 <%end%>
